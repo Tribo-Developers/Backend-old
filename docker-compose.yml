@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  tribo-api-postgres-compose:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: "tribo"
+      POSTGRES_DB: "tribo"
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./pgDatabase:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  tribo-api-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "tribo@tribo.com"
+      PGADMIN_DEFAULT_PASSWORD: "tribo"
+    ports:
+      - "16543:80"
+    depends_on:
+      - tribo-api-postgres-compose
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge
