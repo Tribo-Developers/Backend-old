@@ -16,4 +16,12 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', 'TestController.create')
+//Exclusivo para testes
+Route.group(()=>{
+    Route.resource("test", "TestController").apiOnly()
+})
+
+
+Route.get('/itworks', ({request,response})=>{
+    return {test: 'IT WORKS!'}
+})
