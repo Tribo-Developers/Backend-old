@@ -52,7 +52,7 @@ adonis serve --dev
 - Gabriel Carvalho
 - Lucas Pinheiro
 - Matheus Torres
-- Pedro Victor
+- [Pedro Victor](https://github.com/stormsamurai1)
 - [Renê Soares](https://github.com/renesoaresse)
 - Rodrigo Santos
 - Slitaz
