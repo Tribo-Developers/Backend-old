@@ -11,4 +11,4 @@ tmp
 database/*.sqlite
 
 # The development pg file
-pgDatabase/*
+pgDatabase

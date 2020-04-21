@@ -6,6 +6,7 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: "tribo"
+      POSTGRES_USERNAME: "tribo"
       POSTGRES_DB: "tribo"
     ports:
       - "15432:5432"
