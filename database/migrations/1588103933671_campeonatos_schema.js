@@ -7,9 +7,9 @@ class CampeonatosSchema extends Schema {
   up () {
     this.create('campeonatos', (table) => {
       table.increments()
-      table.string('Nome').unique().notNullable().primary()
-      table.timestamps('Inicio').notNullable()
-      table.timestamps('Fim').notNullable()
+      table.string('Nome').unique().notNullable()
+      table.timestamp('Inicio').notNullable()
+      table.timestamp('Fim').notNullable()
       table.timestamps()
     })
   }

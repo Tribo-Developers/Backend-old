@@ -7,7 +7,7 @@ class TimesSchema extends Schema {
   up () {
     this.create('times', (table) => {
       table.increments()
-      table.string('Nome').notNullable()
+      table.string('Nome').notNullable().unique()
       table.string('Logo').notNullable()
       table.string('Jogador1').notNullable()
       table.string('Jogador2').notNullable()
