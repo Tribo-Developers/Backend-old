@@ -8,7 +8,9 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "test": "node ace test",
-    "restartTables": "adonis migration:refresh"
+    "restartTables": "adonis migration:refresh",
+    "resetTables": "adonis migration:reset",
+    "createTables": "adonis migration:run"
   },
   "keywords": [
     "adonisjs",
