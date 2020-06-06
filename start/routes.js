@@ -29,6 +29,10 @@ Route.group(()=>{
     Route.resource("campeonato","CampeonatoController").apiOnly()
 })
 
+Route.group(()=>{
+    Route.resource("timecamp","TimeCampController").apiOnly()
+})
+
 Route.get('/itworks', ({request,response})=>{
     return {test: 'IT WORKS!'}
 })

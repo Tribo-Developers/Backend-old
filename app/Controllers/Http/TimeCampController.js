@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const TimeCamp = use('App/Models/TimeCamp')
+
 /**
  * Resourceful controller for interacting with timecamps
  */
@@ -18,18 +20,9 @@ class TimeCampController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-  }
+    const timeCamp = await TimeCamp.all();
 
-  /**
-   * Render a form to be used for creating a new timecamp.
-   * GET timecamps/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+    return timeCamp
   }
 
   /**
@@ -41,6 +34,16 @@ class TimeCampController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    try{
+      const data = request.only(['Time','Campeonato'])
+
+      const timecamp = await TimeCamp.create({...data})
+
+      return timecamp
+    }catch(e){
+      response.status(400).send({content: 'Valor inválido passado para o relacionamento'})
+    }
+
   }
 
   /**
@@ -53,18 +56,12 @@ class TimeCampController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-  }
+    const { id } = params
 
-  /**
-   * Render a form to update an existing timecamp.
-   * GET timecamps/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+    const timecamp = await TimeCamp.find(id)
+
+    return timecamp
+  
   }
 
   /**
@@ -76,6 +73,18 @@ class TimeCampController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const { id } = params
+
+    const data = request.only(['Time','Campeonato'])
+    try{
+    
+      const timecamp = TimeCamp.query().where('id',id).update(data)
+    
+      return timecamp
+    }catch(e){
+      response.status(400).send({content: 'Valor inválido passado para o relacionamento'})
+    }
+    
   }
 
   /**
@@ -87,6 +96,11 @@ class TimeCampController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    const { id } = params
+
+    const timecamp = TimeCamp.query().where('id',id).delete()
+
+    return timecamp
   }
 }
 

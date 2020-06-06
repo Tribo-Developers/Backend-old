@@ -7,6 +7,8 @@ class TimeCampSchema extends Schema {
   up () {
     this.create('time_camps', (table) => {
       table.increments()
+      table.string('Time').references('Nome').inTable('times')
+      table.string('Campeonato').references('Nome').inTable('campeonatoes')
       table.timestamps()
     })
   }
