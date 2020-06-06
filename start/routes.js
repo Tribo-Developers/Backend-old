@@ -21,6 +21,10 @@ Route.group(()=>{
     Route.resource("test", "TestController").apiOnly()
 })
 
+Route.group(()=>{
+    Route.resource("time", "TimeController").apiOnly()
+})
+
 
 Route.get('/itworks', ({request,response})=>{
     return {test: 'IT WORKS!'}
