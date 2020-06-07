@@ -12,8 +12,6 @@ class PartidasSchema extends Schema {
       table.string('Campeonato').references('Nome').inTable('campeonatoes').notNullable()
       table.string('Time1').references('Nome').inTable('times').notNullable()
       table.string('Time2').references('Nome').inTable('times').notNullable()
-      table.string('Logo_Time1').notNullable()
-      table.string('Logo_Time2').notNullable()
       table.integer('MD').notNullable()
       table.boolean('Jogo_Brasil').notNullable()
       table.string('Banner_Jogo')

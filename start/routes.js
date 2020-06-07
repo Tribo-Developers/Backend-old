@@ -33,6 +33,10 @@ Route.group(()=>{
     Route.resource("timecamp","TimeCampController").apiOnly()
 })
 
+Route.group(()=>{
+    Route.resource("partidas","PartidaController").apiOnly()
+})
+
 Route.get('/itworks', ({request,response})=>{
     return {test: 'IT WORKS!'}
 })

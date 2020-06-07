@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Partida = use('App/Models/Partida')
+
 /**
  * Resourceful controller for interacting with partidas
  */
@@ -18,18 +20,9 @@ class PartidaController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-  }
+    const partidas = await Partida.all()
 
-  /**
-   * Render a form to be used for creating a new partida.
-   * GET partidas/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+    return partidas;
   }
 
   /**
@@ -41,6 +34,14 @@ class PartidaController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    const data = request.only(["Inicio","Campeonato","Time1","Time2","MD","Jogo_Brasil","Banner_Jogo"])
+  
+    data.Inicio = new Date()
+
+    const createdPartida = await Partida.create({...data})
+
+    return createdPartida
+
   }
 
   /**
@@ -53,18 +54,12 @@ class PartidaController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-  }
+    const { id } = params
 
-  /**
-   * Render a form to update an existing partida.
-   * GET partidas/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
+    const partidas = await Partida.find(id)
+
+    return partidas
+
   }
 
   /**
@@ -76,6 +71,15 @@ class PartidaController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    const { id } = params
+
+    const data = request.only(["Inicio","Campeonato","Time1","Time2","MD","Jogo_Brasil","Banner_Jogo"])
+  
+    data.Inicio = new Date()
+    
+    const partida = await Partida.query().where('id',id).update(data)
+
+    return partida
   }
 
   /**
@@ -87,6 +91,12 @@ class PartidaController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    const { id } = params
+
+    const partida = await Partida.query().where('id',id).delete()
+
+    return partida
+  
   }
 }
 
