@@ -4,6 +4,9 @@
   "adonis-version": "4.1.0",
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
   "main": "index.js",
+  "engines": {
+    "node": "12.18.0"
+  },
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
