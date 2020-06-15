@@ -12,3 +12,6 @@ database/*.sqlite
 
 # The development pg file
 pgDatabase
+
+package-lock.json
+yarn.lock
