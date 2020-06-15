@@ -5,8 +5,12 @@
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "node ace test",
+    "restartTables": "adonis migration:refresh",
+    "resetTables": "adonis migration:reset",
+    "createTables": "adonis migration:run"
   },
   "keywords": [
     "adonisjs",
@@ -26,7 +30,9 @@
     "@adonisjs/lucid": "^6.1.3",
     "pg": "^8.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "autoload": {
     "App": "./app"
   }

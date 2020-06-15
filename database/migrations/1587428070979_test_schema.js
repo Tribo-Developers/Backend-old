@@ -13,7 +13,6 @@ class TestSchema extends Schema {
       table.boolean('JogoDoBrasil').notNullable()
       table.integer('Dia').notNullable().unsigned()
       table.integer('Mes').notNullable().unsigned()
-      table.integer('Ano').notNullable().unsigned()
       table.integer('BestOf').notNullable()
       table.timestamps()
     })
