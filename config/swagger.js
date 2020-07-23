@@ -951,7 +951,6 @@ module.exports = {
     // ]
     apis: [
       //'app/**/*.js',
-      'docs/swagger.yaml',
       'start/routes.js'
     ]
   }
