@@ -46,6 +46,8 @@ Rodando a aplicação em modo de desenvolvimento
 adonis serve --dev
 ```
 
+**Para modificar a documentação, alterar o arquivo config/swagger.js**
+
 ## Membros Core
 
 - Carlos Pedroso

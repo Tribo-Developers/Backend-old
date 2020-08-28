@@ -18,7 +18,7 @@ module.exports = {
         title: 'Documentação BackEnd da Tribo',
         version: '1.0',
       },
-  
+
       basePath: '/',
       "tags": [
         {
