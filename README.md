@@ -56,6 +56,7 @@ adonis serve --dev
 - Matheus Torres
 - [Pedro Victor](https://github.com/stormsamurai1)
 - [Renê Soares](https://github.com/renesoaresse)
+- [BrunoSana](https://github.com/brunosana)
 - Rodrigo Santos
 - Slitaz
 - Victor Garcia
