@@ -46,6 +46,8 @@ Rodando a aplicação em modo de desenvolvimento
 adonis serve --dev
 ```
 
+**Para modificar a documentação, alterar o arquivo config/swagger.js**
+
 ## Membros Core
 
 - Carlos Pedroso
@@ -54,6 +56,7 @@ adonis serve --dev
 - Matheus Torres
 - [Pedro Victor](https://github.com/stormsamurai1)
 - [Renê Soares](https://github.com/renesoaresse)
+- [BrunoSana](https://github.com/brunosana)
 - Rodrigo Santos
 - Slitaz
 - Victor Garcia
